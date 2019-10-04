@@ -1,13 +1,10 @@
 
 <div class="row">
     <div class="col-md-12">
-        <form class="form-horizontal">
+        <form class="form-horizontal" (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <div class="col-md-10">
-                    <input type="text"
-                           name="giphy-search"
-                           class="form-control"
-                           placeholder="type your search here"
+                <div class="col-md-6">
+                    <input type="text" id="name" name="name" [(ngModel)]="name" placeholder="search"
                     />
                 </div>
                 <div class="col-md-2">
@@ -17,3 +14,10 @@
         </form>
     </div>
 </div>
+<app-results-list></app-results-list>
+<div class="gif">
+    <div *ngFor="let gif of gifys" class="gifs">
+      <p>{{gif.title}}</p>
+      <img [src]="gif.images.original.url">
+    </div>
+  </div>
